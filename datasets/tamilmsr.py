@@ -9,7 +9,7 @@ def build_from_path(in_dir, out_dir, num_workers=1, tqdm=lambda x: x):
   executor = ProcessPoolExecutor(max_workers=num_workers)
   futures = []
   index = 1
-  with open(os.path.join(in_dir, 'metadata.txt'), encoding='utf-8') as f:
+  with open(os.path.join(in_dir, 'transaction.txt'), encoding='utf-8') as f:
     for line in f:
       parts = line.strip().split("\t")
       wav_path = os.path.join(in_dir, 'wavs', '%s.wav' % parts[0])
@@ -32,8 +32,8 @@ def _process_utterance(out_dir, index, wav_path, text):
   mel_spectrogram = audio.melspectrogram(wav).astype(np.float32)
 
   # Write the spectrograms to disk:
-  spectrogram_filename = 'gowtham-spec-%05d.npy' % index
-  mel_filename = 'gowtham-mel-%05d.npy' % index
+  spectrogram_filename = 'tamil-spec-%05d.npy' % index
+  mel_filename = 'tamil-mel-%05d.npy' % index
   np.save(os.path.join(out_dir, spectrogram_filename), spectrogram.T, allow_pickle=False)
   np.save(os.path.join(out_dir, mel_filename), mel_spectrogram.T, allow_pickle=False)
 
