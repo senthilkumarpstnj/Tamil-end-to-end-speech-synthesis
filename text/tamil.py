@@ -739,3 +739,4 @@ class CacheGetLettersMixin:
             rval = self.get_letters_impl(word)
             self._cache[word] = rval
         return rval
+    
