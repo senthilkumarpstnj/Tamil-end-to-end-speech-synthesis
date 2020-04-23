@@ -2,11 +2,8 @@ import argparse
 import os
 from multiprocessing import cpu_count
 from tqdm import tqdm
-from datasets import blizzard, ljspeech, gowtham
+from datasets import blizzard, ljspeech, tamilmsr
 from hparams import hparams
-
-
-base_dire='D:\\tts\\tacotronmaster\\tacotron'
 
 def preprocess_blizzard(args):
   in_dir = os.path.join(args.base_dir, 'Blizzard2012')
@@ -23,11 +20,11 @@ def preprocess_ljspeech(args):
   metadata = ljspeech.build_from_path(in_dir, out_dir, args.num_workers, tqdm=tqdm)
   write_metadata(metadata, out_dir)
 
-def preprocess_gowtham(args):
-  in_dir = os.path.join(base_dire, 'gowtham')
-  out_dir = os.path.join(base_dire, args.output)
+def preprocess_tamilmsr(args):
+  in_dir = os.path.join(args.base_dir, 'tamilmsr')
+  out_dir = os.path.join(args.base_dir, args.output)
   os.makedirs(out_dir, exist_ok=True)
-  metadata = gowtham.build_from_path(in_dir, out_dir, args.num_workers, tqdm=tqdm)
+  metadata = tamilmsr.build_from_path(in_dir, out_dir, args.num_workers, tqdm=tqdm)
   write_metadata(metadata, out_dir)
 
 def write_metadata(metadata, out_dir):
@@ -45,11 +42,11 @@ def main():
   parser = argparse.ArgumentParser()
   parser.add_argument('--base_dir', default=os.path.expanduser('~/tacotron'))
   parser.add_argument('--output', default='training')
-  parser.add_argument('--dataset', required=True, choices=['gowtham'])
+  parser.add_argument('--dataset', required=True, choices=['tamilmsr'])
   parser.add_argument('--num_workers', type=int, default=cpu_count())
   args = parser.parse_args()
-  if args.dataset == 'gowtham':
-    preprocess_gowtham(args)
+  if args.dataset == 'tamilmsr':
+    preprocess_tamilmsr(args)
 	
 
 
