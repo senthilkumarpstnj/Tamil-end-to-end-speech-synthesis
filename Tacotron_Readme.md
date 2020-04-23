@@ -75,7 +75,7 @@ Pull requests are welcome!
    You can use other datasets if you convert them to the right format. See [TRAINING_DATA.md](TRAINING_DATA.md) for more info.
    
    For Tamil, Dataset from Microsoft Research has been used:
-    *[msropendata](https://msropendata.com/datasets/7230b4b1-912d-400e-be58-f84e0512985e)
+    * [msropendata](https://msropendata.com/datasets/7230b4b1-912d-400e-be58-f84e0512985e)
 
 
 2. **Unpack the dataset into `~/tacotron`**
