@@ -72,11 +72,11 @@ Pull requests are welcome!
     * [LJ Speech](https://keithito.com/LJ-Speech-Dataset/) (Public Domain)
     * [Blizzard 2012](http://www.cstr.ed.ac.uk/projects/blizzard/2012/phase_one) (Creative Commons Attribution Share-Alike)
 
-   You can use other datasets if you convert them to the right format. See [TRAINING_DATA.md](TRAINING_DATA.md) for more info.
-   
    For Tamil, Dataset from Microsoft Research has been used:
     * [msropendata](https://msropendata.com/datasets/7230b4b1-912d-400e-be58-f84e0512985e)
 
+   You can use other datasets if you convert them to the right format. See [TRAINING_DATA.md](TRAINING_DATA.md) for more info.
+   
 
 2. **Unpack the dataset into `~/tacotron`**
 
@@ -104,7 +104,7 @@ Pull requests are welcome!
    or like this for msropendata:
    ```
    tacotron
-     |- msropen
+     |- tamilmsr
          |- transactions.txt
          |- wavs
    ```
@@ -113,7 +113,7 @@ Pull requests are welcome!
    ```
    python3 preprocess.py --dataset ljspeech
    ```
-     * Use `--dataset blizzard` for Blizzard data and `--dataset msropendata` for msropendata
+     * Use `--dataset blizzard` for Blizzard data and `--dataset tamilmsr` for msropendata
 
 4. **Train a model**
    ```
