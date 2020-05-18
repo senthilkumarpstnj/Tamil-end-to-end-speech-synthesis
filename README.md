@@ -1,6 +1,6 @@
 # Tacotron
 
-An implementation of Tacotron speech synthesis in TensorFlow.
+An implementation of Tacotron speech synthesis in TensorFlow for Tamil Language.
 
 
 ### Audio Samples
